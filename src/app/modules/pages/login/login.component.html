@@ -1,0 +1,6 @@
+<p-card header="Login">
+    <input type="text" pInputText placeholder="Login"/>
+    <p-password placeholder="Senha" [toggleMask]="true"/>
+    <p-button label="Entrar"/>
+    <p-button label="Esqueci a senha" [link]="true" (click)="_utilService.navegation('/esqueci-a-senha')"/>
+</p-card>

@@ -1,0 +1,18 @@
+<p-toolbar>
+    <div class="p-toolbar-group-start" *ngIf="openNav">
+        <span class="desktop">Sigae Lite</span>
+        <div class="p-toolbar-group-start">
+            <p-button icon="pi pi-user" label="Pessoas"/>
+            <p-button icon="pi pi-calendar" label="Agenda"/>
+            <p-button icon="pi pi-copy" label="Plano de Ação" />
+        </div>
+        <p-button label="Login" class="mobile" routerLink="/login" (click)="_utilService.navegation('/login')"/>
+        <p-button icon="pi pi-power-off" label="Quit" class="mobile"/>
+    </div>
+    <div class="p-toolbar-group-end">
+        <span class="mobile">Sigae Lite</span>
+        <p-button label="Login" class="desktop" (click)="_utilService.navegation('/login')"/>
+        <p-button icon="pi pi-power-off" label="Quit" class="desktop"/>
+        <p-button icon="pi pi-bars" class="mobile" (click)="navMobile()"/>
+    </div>
+</p-toolbar>
