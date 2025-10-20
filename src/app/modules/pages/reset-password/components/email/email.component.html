@@ -1,5 +1,7 @@
 <p-card header="Esqueci a senha">
-    <p>Informe o email cadastrado ppara receber o código de recureração da sehna.</p>
-    <input type="text" pInputText placeholder="Email"/>     
-    <p-button label="Entrar" (click)="btnSendEmail()"/>
+    <form [formGroup]="emailForm" (submit)="submitEmail()">
+        <p>Informe o email cadastrado ppara receber o código de recureração da sehna.</p>
+        <input formControlName="email" type="text" pInputText placeholder="Email"/>     
+        <p-button type="submit" label="Entrar" [disabled]="emailForm.invalid"/><!--(click)="btnSendEmail()"-->
+    </form>
 </p-card>
