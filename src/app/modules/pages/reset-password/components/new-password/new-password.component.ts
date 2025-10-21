@@ -1,7 +1,7 @@
 import { UtilsService } from './../../../../../shared/services/utils.service';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
