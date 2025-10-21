@@ -1,0 +1,87 @@
+:host ::ng-deep {
+    main {
+        padding: 69px 59px;
+        .address-registration-config {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 69px;
+            .first-line{
+                display: flex;
+                gap: 16px;
+                .p-inputtext { width: 100%; }
+            }
+            .second-line {
+                display: flex;
+                gap: 16px;
+                .input {
+                    width: 100%;
+                    display: flex;
+                    gap: 16px;
+                    p-inputMask {
+                        width: 100%;
+                        .p-inputtext { width: 100%; }
+                    }
+                }
+                .select {
+                    width: 100%;
+                    display: flex;
+                    gap: 16px;
+                    p-dropdown {
+                        width: 50%;
+                        .p-dropdown { width: 100%; }
+                    }
+                }
+            }
+        }
+        .contact-config {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 69px;
+            .fone-config {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                .align-fone {
+                    display: flex;
+                    gap: 16px;
+                    p-inputMask { 
+                        width: 430px;
+                        .p-inputtext { width: 100%; }
+                    }
+                    .p-button {
+                        &:active, &:focus { box-shadow: none; }
+                    }
+                }
+            }
+            .button-align {
+                display: flex;
+                gap: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        .address-registration-config { 
+            .first-line{ flex-direction: column; }
+            .second-line {
+                flex-direction: column;
+                .input { flex-direction: column; }
+                .select {
+                    flex-direction: column;
+                    p-dropdown { width: 100%; }
+                }
+            }
+        }
+        .contact-config {
+            width: 100%;
+            .fone-config {
+                p-inputMask {  width: 300px; }
+            }
+        }
+    }
+}

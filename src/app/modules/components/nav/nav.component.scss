@@ -2,9 +2,7 @@
     color: var(--grey-010);
     background: transparent;
     border: transparent;
-    &:hover {
-        background-color: var(--white-010);
-    }
+    &:hover { background-color: var(--white-010); }
     &:active, &:focus {
         background: var(--blue-01);
         color: var(--blue);
@@ -12,38 +10,36 @@
     }
 }
 
-
-
-.p-toolbar-group-start span {
-    margin-right: 15px;
-}
+.p-toolbar-group-start span { margin-right: 15px; }
 
 
 @media screen and (max-width: 768px) {
-
-:host ::ng-deep .p-toolbar {
-    flex-direction: column-reverse;
-
-    .p-toolbar-group-start {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-        p-button {
+    :host ::ng-deep .p-toolbar {
+        flex-direction: column-reverse;
+        .p-toolbar-group-start {
             width: 100%;
-            button {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+            p-button {
                 width: 100%;
-                text-align: start;
+                button {
+                    width: 100%;
+                    text-align: start;
+                }
+            }
+            &.version-mobile {
+                position: absolute;
+                background-color: var(--grey-background-nav);
+                padding: 40px 0;
+                top: 84px;
+                border-bottom: 1px solid var(--white-020);
+                z-index: 999;
             }
         }
+        .p-toolbar-group-end {
+            width: 100%;
+            justify-content: space-between;
+        }
     }
-    .p-toolbar-group-end {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-}
-
-
-
 }
