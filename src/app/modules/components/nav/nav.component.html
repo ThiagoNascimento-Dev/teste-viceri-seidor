@@ -17,11 +17,13 @@
             <p-button
                 icon="pi pi-calendar"
                 label="Agenda"
-                *ngIf="!showItemNav"/>
+                *ngIf="!showItemNav"
+                (click)="_utilService.navegation('/agenda')"/>
             <p-button
                 icon="pi pi-copy"
                 label="Plano de Ação"
-                *ngIf="!showItemNav"/>
+                *ngIf="!showItemNav"
+                (click)="_utilService.navegation('/plano-de-acao')"/>
         </div>
         <p-button
             label="Login"
