@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
@@ -8,6 +8,7 @@ import { UtilsService } from '../../../shared/services/utils.service';
 import { ModelPeople } from '../../../shared/models/people';
 import { DataPeopleService } from '../../../shared/services/data-people.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-people',
@@ -19,7 +20,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     ButtonModule,
     TableModule,
     ToastModule,
-
+    InputTextModule,
   ],
   providers: [
     DataPeopleService,
@@ -45,12 +46,12 @@ export class PeopleComponent implements OnInit {
   _utilService = this.utilsService;
 
   ngOnInit() {
-    
+
     this.dataPeopleService.getPeopleTableT().then((data) => {
       this.peopleList = data;
     });
 
-    // console.log('lista: ',this.peopleList);
+    console.log('lista: ',this.dataPeopleService.getPeopleTable());
 
   }
 
@@ -79,7 +80,7 @@ export class PeopleComponent implements OnInit {
     //     icon: 'pi pi-exclamation-triangle',
     //     accept: () => {
             this.peopleList = this.peopleList.filter((val) => val.id !== people.id);
-            this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Deleted', life: 3000 });
+            this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Contato deletado com sucesso!', life: 3000 });
     //     }
     // });
   }

@@ -6,8 +6,8 @@ export interface ModelPeople {
     cnpj?: number;
     school?: string;
     email?: string;
-    // fone: [{},],
-    adrees?: string;
+    fone?: string[];
+    address?: string;
     city?: string;
     cep?: number;
     state?: string;

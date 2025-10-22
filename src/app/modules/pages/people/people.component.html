@@ -5,6 +5,9 @@
     
     <p-toast></p-toast>
     <p-table [value]="peopleList" dataKey="id" editMode="row" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="caption">
+            Pessoas
+        </ng-template>
         <ng-template pTemplate="header">
             <tr>
                 <th style="width:20%">Nome</th>
@@ -96,16 +99,6 @@
                             (click)="onRowEditInit(peopleList)" 
                             class="p-button-rounded p-button-text">
                         </button>
-                        <!-- <button 
-                            *ngIf="!editing" 
-                            pButton 
-                            pRipple 
-                            type="button" 
-                            pInitEditableRow 
-                            icon="pi pi-trash" 
-                            (click)="deletePeople(peopleList)" 
-                            class="p-button-rounded p-button-text">
-                        </button> -->
                         <button 
                             *ngIf="editing" 
                             pButton 
@@ -141,5 +134,4 @@
             </tr>
         </ng-template>
     </p-table>
-
 </main>

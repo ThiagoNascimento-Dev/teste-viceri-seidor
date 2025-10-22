@@ -7,6 +7,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UtilsService } from '../../../shared/services/utils.service';
+import { ModelPeople } from '../../../shared/models/people';
+import { DataPeopleService } from '../../../shared/services/data-people.service';
 
 interface School {
     name: string;
@@ -39,15 +41,18 @@ export class PeopleRegistrationComponent implements OnInit {
   registrationContactForm: FormGroup = new FormGroup({});
   registrationAddressForm: FormGroup = new FormGroup({});
 
-  schools: School[] | undefined;         //apagar
-  countrys: Country[] | undefined;         //apagar
+  schools: School[] | undefined;         
+  countrys: Country[] | undefined;        
 
   constructor(
     private fb: FormBuilder,
     private utilsService: UtilsService,
+    private dataPeopleService: DataPeopleService,
   ) {}
 
   _utilService = this.utilsService;
+
+  newPerson!:ModelPeople[];
 
   ngOnInit() {
     
@@ -106,12 +111,29 @@ export class PeopleRegistrationComponent implements OnInit {
   submitRegistrationData() {
     console.log(this.registrationDataForm.value);
   }
-  submitRegistrationAddress() {
-    console.log(this.registrationAddressForm.value);
-  }
 
   submitRegistrationContact() {
     console.log(this.registrationContactForm.value);
+  }
+
+  submitRegistrationAddress() {
+    const newData:ModelPeople = {
+      id:15,
+      name:this.registrationDataForm.controls['name'].value,
+      cpf:this.registrationDataForm.controls['cpf'].value,
+      cnpj:this.registrationDataForm.controls['cnpj'].value,
+      school:this.registrationDataForm.controls['school'].value,
+      email:this.registrationContactForm.controls['email'].value,
+      fone:this.registrationContactForm.controls['fone'].value,
+      address:this.registrationAddressForm.controls['address'].value,
+      city:this.registrationAddressForm.controls['city'].value,
+      cep:this.registrationAddressForm.controls['cep'].value,
+      state:this.registrationAddressForm.controls['state'].value,
+      country:this.registrationAddressForm.controls['country'].value
+    }
+    this.dataPeopleService.addPeople(newData);
+    console.log('teste: ', this.dataPeopleService.getPeopleTable());
+    this._utilService.navegation('/pessoas');
   }
 
   get fones(): FormArray {
