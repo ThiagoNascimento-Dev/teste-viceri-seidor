@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import "scss";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+.mobile { display: none; }
+
+.desktop { display: flex; }
+
+@media screen and (max-width: 768px) {
+    .mobile { display: flex; }
+
+    .desktop { display: none; }
+
+}

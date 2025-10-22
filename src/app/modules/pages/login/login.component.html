@@ -1,0 +1,31 @@
+<p-card header="Login">
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+        <input
+            formControlName="login"
+            type="text"
+            pInputText
+            placeholder="Login"/>
+        <p-password
+            formControlName="password"
+            placeholder="Senha"
+            [toggleMask]="true"
+            weakLabel="Fraco"
+            mediumLabel="Médio"
+            strongLabel="Forte"/>
+        <div>
+            <ngx-recaptcha2
+                [siteKey]="'6Le0BfArAAAAAA7xmw5bQm9P7BmEDbCHBDjpELJ0'"
+                [useGlobalDomain]="false"
+                formControlName="recaptcha"
+            ></ngx-recaptcha2>
+        </div>
+        <p-button
+            type="submit"
+            label="Entrar"
+            [disabled]="loginForm.invalid"/>
+        <p-button
+            label="Esqueci a senha"
+            [link]="true"
+            (click)="_utilService.navegation('/esqueci-a-senha')"/>
+    </form>
+</p-card>

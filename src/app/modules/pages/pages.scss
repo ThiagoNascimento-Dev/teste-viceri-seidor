@@ -1,0 +1,36 @@
+:host {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--grey-background);
+    .btn-back{
+        position: absolute;
+        top: 32px;
+        left: 32px;
+    }
+    ::ng-deep p-card {
+        .p-card {
+            width: 450px;
+            border-radius: 12px;
+            .p-card-body {
+                padding: 2.5rem;
+                .p-card-title { text-align: center; }
+                .p-card-content {
+                    padding: 3.6875rem 0 0;
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 16px;
+                        input { width: 100%; }
+                        p-password {
+                            width: 100%;
+                            .p-password { width: 100%; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

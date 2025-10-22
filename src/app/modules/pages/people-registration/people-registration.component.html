@@ -1,0 +1,140 @@
+<main>
+    <div class="card">
+        <p-stepper [linear]="true">
+            <p-stepperPanel header="Dados Cadastrais">
+                <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                    <form [formGroup]="registrationDataForm" (submit)="submitRegistrationData()" class="address-registration-config">
+                        <div class="first-line">
+                            <input 
+                                formControlName="name"
+                                type="text"
+                                pInputText
+                                placeholder="Nome"/>
+                            <input
+                                formControlName="socialName"
+                                type="text"
+                                pInputText
+                                placeholder="Nome Social"/>
+                        </div>
+                        <div class="second-line">
+                            <div class="input">
+                                <p-inputMask 
+                                    mask="999.999.999-99" 
+                                    formControlName="cpf" 
+                                    placeholder="CPF" />
+                                <p-inputMask 
+                                    mask="99.999999/9999-99" 
+                                    formControlName="cnpj" 
+                                    placeholder="CNPJ" />
+                            </div>
+                            <div class="select">
+                                <p-dropdown 
+                                    formControlName="school" 
+                                    [options]="schools"
+                                    optionLabel="name"
+                                    placeholder="Selecione uma escola" />
+                                <p-button
+                                    type="submit"
+                                    label="Próximo"
+                                    icon="pi pi-arrow-right"
+                                    iconPos="right"
+                                    (onClick)="nextCallback.emit()"
+                                    [disabled]="registrationDataForm.invalid"/>
+                            </div>
+                        </div>
+                    </form>
+                </ng-template>
+            </p-stepperPanel>
+            <p-stepperPanel header="Dados de Contato">
+                <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
+                    <form [formGroup]="registrationContactForm" (submit)="submitRegistrationContact()" class="contact-config">
+                        <input 
+                            formControlName="email"
+                            type="text"
+                            pInputText
+                            placeholder="E-Mail"/>
+                        <div formArrayName="fone" class="fone-config">
+                            <div class="align-fone" *ngFor="let fone of fones.controls; let i = index">
+                                <p-inputMask 
+                                    mask="(99) 99999-9999" 
+                                    [formControlName]="i" 
+                                    placeholder="Telefone {{i + 1}}" />
+                                <p-button
+                                    [text]="true"
+                                    severity="secondary"
+                                    icon="pi pi-plus"
+                                    (click)="addFone()"/>
+                                <p-button
+                                    *ngIf="i > 0"
+                                    [text]="true"
+                                    severity="secondary"
+                                    icon="pi pi-times"
+                                    (click)="removeFone(i)"/>
+                            </div>
+                        </div>
+                        <div class="button-align">
+                            <p-button
+                                label="Anterior"
+                                icon="pi pi-arrow-left"
+                                (onClick)="prevCallback.emit()" />
+                            <p-button
+                                type="submit"
+                                label="Próximo"
+                                icon="pi pi-arrow-right"
+                                iconPos="right"
+                                (onClick)="nextCallback.emit()"
+                                [disabled]="registrationContactForm.invalid"/>
+                        </div>
+                    </form>
+                </ng-template>
+            </p-stepperPanel>
+            <p-stepperPanel header="Dados de Endereço">
+                <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                    <form [formGroup]="registrationAddressForm" (submit)="submitRegistrationAddress()" class="address-registration-config">
+                        <div class="first-line">
+                            <input 
+                                formControlName="address"
+                                type="text"
+                                pInputText
+                                placeholder="Endereço completo"/>
+                            <input
+                                formControlName="city"
+                                type="text"
+                                pInputText
+                                placeholder="Cidade"/>
+                        </div>
+                        <div class="second-line">
+                            <div class="input">
+                                <p-inputMask 
+                                    mask="99999-999" 
+                                    formControlName="cep" 
+                                    placeholder="CEP"/>
+                                <input 
+                                    formControlName="state"
+                                    type="text"
+                                    pInputText
+                                    placeholder="Estado"/>
+                            </div>
+                            <div class="select">
+                                <p-dropdown 
+                                    formControlName="country" 
+                                    [options]="countrys"
+                                    optionLabel="name"
+                                    placeholder="Pais"/>
+                                <p-button
+                                    label="Anterior"
+                                    icon="pi pi-arrow-left"
+                                    (onClick)="prevCallback.emit()"/>
+                                <p-button
+                                    type="submit"
+                                    label="Concluir"
+                                    [disabled]="registrationAddressForm.invalid"
+                                    />
+                            </div>
+                        </div>
+                    </form>
+                </ng-template>
+            </p-stepperPanel>
+        </p-stepper>
+    </div>
+</main>
