@@ -18,11 +18,13 @@
                 icon="pi pi-calendar"
                 label="Agenda"
                 *ngIf="!showItemNav"
+                (click)="navMobile()"
                 (click)="_utilService.navegation('/agenda')"/>
             <p-button
                 icon="pi pi-copy"
                 label="Plano de Ação"
                 *ngIf="!showItemNav"
+                (click)="navMobile()"
                 (click)="_utilService.navegation('/plano-de-acao')"/>
         </div>
         <p-button
