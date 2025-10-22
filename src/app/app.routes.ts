@@ -7,6 +7,8 @@ import { ResetPasswordComponent } from './modules/pages/reset-password/reset-pas
 import { PeopleComponent } from './modules/pages/people/people.component';
 import { PeopleRegistrationComponent } from './modules/pages/people-registration/people-registration.component';
 import { HomeSystemComponent } from './modules/pages/home-system/home-system.component';
+import { ScheduleComponent } from './modules/pages/schedule/schedule.component';
+import { ActionPlanComponent } from './modules/pages/action-plan/action-plan.component';
 
 export const routes: Routes = [
     {
@@ -18,10 +20,6 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
-        path:'home-sistema',
-        component: HomeSystemComponent
-    },
-    {
         path: 'login',
         component: LoginComponent
     },
@@ -30,11 +28,23 @@ export const routes: Routes = [
         component: ResetPasswordComponent
     },
     {
+        path:'home-sistema',
+        component: HomeSystemComponent
+    },
+    {
         path:'pessoas',
         component: PeopleComponent
     },
     {
         path:'pessoas/cadastrar',
         component: PeopleRegistrationComponent
+    },
+    {
+        path: 'agenda',
+        component: ScheduleComponent
+    },
+    {
+        path: 'plano-de-acao',
+        component: ActionPlanComponent
     }
 ];

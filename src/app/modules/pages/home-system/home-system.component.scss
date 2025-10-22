@@ -1,0 +1,13 @@
+:host {
+    main ::ng-deep {
+        padding: 16px 8px;
+        .align-cards {
+            display: flex;
+            gap: 16px;
+        }
+        p-card {
+            width: 100%;
+            .p-card { border: 2px solid var(--white-020); }
+        }
+    }
+}

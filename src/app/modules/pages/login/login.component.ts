@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
-
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -11,9 +10,6 @@ import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { InputOtpModule } from 'primeng/inputotp';
 import { NgxCaptchaModule } from 'ngx-captcha';
-
-
-
 
 @Component({
   selector: 'app-login',
@@ -29,7 +25,6 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     InputOtpModule,
     DividerModule,
     NgxCaptchaModule
-    
   ],
   templateUrl: './login.component.html',
   styleUrl: '../pages.scss'

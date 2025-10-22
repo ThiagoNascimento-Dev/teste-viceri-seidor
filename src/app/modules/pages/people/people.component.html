@@ -2,7 +2,6 @@
     <div>
         <p-button label="Adicionar" (click)="_utilService.navegation('/pessoas/cadastrar')"/>
     </div>
-    
     <p-toast></p-toast>
     <p-table [value]="peopleList" dataKey="id" editMode="row" [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="caption">
